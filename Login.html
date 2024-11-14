@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>User Login</title>
+    <link href="realtor.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="container1">
+    <h1>Login</h1>
+    <form id="login-form" method="post" action="login.php">
+        <label for="email">Email:</label>
+        <input id="email" name="email" placeholder="Enter your email" type="email">
+        <label for="password">Password:</label>
+        <input id="password" name="password" placeholder="Enter your password" type="password">
+        <button type="submit">Log In</button>
+    </form>
+    <p>Don't have an account? <a href="Registration.html">Sign Up</a></p>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const registrationSuccess = getParameterByName('registration');
+
+        if (registrationSuccess === 'success') {
+            alert('Registration successful! You can now log in.');
+        }
+    });
+
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+</script>
+<img src="uploads/logo2.png" alt="Logo">
+<footer>
+    <p>&copy; 2023 Lux House</p>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<?php
+$users = json_decode(file_get_contents('realtorprofile.php'), true);
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Realtor Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #eaeaea;
+            color: #333;
+        }
+
+        .header-container {
+            background-color: black;
+            color: #8d6909;
+            font-family: "Baskerville Old Face",sans-serif;
+            text-align: left;
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            max-width: 150px;
+            margin-right: 200PX;
+            padding: 15px;
+        }
+
+        .dashboard {
+            margin-right: auto;
+        }
+
+        nav {
+            text-align: right;
+            background-color: #0a0a0a;
+            color: #fff;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-right: 15px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: darkgoldenrod;
+            font-weight: bold;
+        }
+
+        .container2 {
+            width: 95%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .property-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .property {
+            width: calc(45% - 20px);
+            margin: 10px;
+            height: 20%;
+            padding: 25px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .property img {
+            width: 95%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .property h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .property p {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .property button {
+            background-color: darkgoldenrod;
+            color: #fff;
+            padding: 10px 14px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            display: inline-block;
+            margin-left: 5px ;
+        }
+
+        .property button:hover {
+            background-color: darkgoldenrod;
+        }
+
+
+        footer {
+            background-color: #0a0a0a;
+            color: darkgoldenrod;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="dashboard">
+            <h1>Realtor Dashboard</h1>
+        </div>
+        <div>
+            <img class="logo" src="uploads/Logo2.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="realtorhomepage.html">Home</a></li>
+                <li><a href="realtorprofile.html">My Profile</a></li>
+                <li><a href="addproperty.html">Add Property</a></li>
+                <li><a href="sendemail.html">Send Email</a></li>
+                <li><a href="Login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <div class="container2">
+        <div class="property-list" id="propertyList">
+
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2023 Lux House</p>
+</footer>
+
+<script src="jquery-3.7.1.min.js"></script>
+<script src="realtorhomepage.js"></script>
+
+
+</body>
+
+</html>

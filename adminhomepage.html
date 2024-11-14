@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Admin Homepage</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #eaeaea;
+            color: #333;
+        }
+
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .container2 {
+            width: 95%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .header-container {
+            background-color: black;
+            color: #8d6909;
+            font-family: "Baskerville Old Face",sans-serif;
+            text-align: left;
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            max-width: 220px;
+            margin-left: 200px;
+        }
+
+
+        nav {
+            width: 95%;
+            margin-right: 25px;
+            text-align: right;
+            background-color: black;
+            color: #fff;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: darkgoldenrod;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: black;
+            color: darkgoldenrod;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+
+
+        .property-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .property {
+            width: calc(50% - 20px);
+            margin: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .property img {
+            width: 95%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border-radius: 6px 6px 0 0;
+        }
+
+
+        .property h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .property p {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .property button {
+            background-color: darkgoldenrod;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .property button:hover {
+            background-color: darkgoldenrod;
+        }
+
+
+        .dashboard {
+            margin-leftt: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="header-container">
+
+    <div class="dashboard">
+        <h1>Admin Dashboard</h1>
+    </div>
+    <div>
+        <img class="logo" src="uploads/Logo2.png" alt="Logo">
+    </div>
+    <header>
+        <div id="welcomeMessage"></div>
+        <nav>
+            <ul>
+                <li><a href="adminhomepage.html">Home</a></li>
+                <li><a href="reports.html">Generate Report</a></li>
+                <li><a href="adduser.html">Add User</a></li>
+                <li><a href="manageusers.html">Manage Users</a></li>
+                <li><a href="adminaddproperty.html">Add Property</a></li>
+                <li><a href="Login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+
+<div class="container2">
+    <div class="property-list" id="propertyList">
+
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2023 Lux House</p>
+</footer>
+
+<script src="jquery-3.7.1.min.js"></script>
+<script src="adminhomepage.js"></script>
+
+</body>
+</html>

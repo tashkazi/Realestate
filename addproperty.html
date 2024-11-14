@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Add Property</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #eaeaea;
+            color: #333;
+        }
+
+        .header-container {
+            background-color: black;
+            color: #8d6909;
+            font-family: "Baskerville Old Face",sans-serif;
+            text-align: left;
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            max-width: 150px;
+            margin-left: 600PX;
+            padding: 15px;
+        }
+
+        .container {
+            width: 95%;
+            border-radius: 6px;
+            background-color: #ffffff;
+            margin-left: 25px;
+            align-content: center;
+        }
+
+        nav {
+            width: 100%;
+            text-align: right;
+            background-color: #0a0a0a;
+            color: #fff;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-right: 15px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: darkgoldenrod;
+            font-weight: bold;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 8px;
+            margin-left: 20px;
+            color: #555;
+            text-align: left;
+            width: 100%;
+        }
+
+        input,
+        select {
+            width: 30%;
+            padding: 10px;
+            margin-right: 930px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: black;
+            color: darkgoldenrod;
+            padding: 10px 15px;
+            border: none;
+            margin-right: 1200px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0a0a0a;
+        }
+
+        footer {
+            background-color: #0a0a0a;
+            color: darkgoldenrod;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+
+        <div>
+            <img class="logo" src="uploads/Logo2.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="realtorhomepage.html">Home</a></li>
+                <li><a href="realtorprofile.html">My Profile</a></li>
+                <li><a href="addproperty.html">Add Property</a></li>
+                <li><a href="sendemail.html">Send Email</a></li>
+                <li><a href="Login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <main>
+        <h2>Add Property</h2>
+        <form action="addproperty.php" id="add-property-form" method="post" enctype="multipart/form-data">
+
+        <label for="property-type">Property Type:</label>
+            <select id="property-type" name="propertyType" required>
+                <option value="apartment">Apartment</option>
+                <option value="townhouse">Townhouse</option>
+                <option value="house">Single Family House</option>
+                <option value="land">Land</option>
+            </select>
+
+            <label for="property-name">Property Name:</label>
+            <input id="property-name" name="propertyName" placeholder="Enter property name" required type="text">
+
+            <label for="property-location">Location:</label>
+            <select id="property-location" name="propertyLocation" required>
+                <option value="Vancouver">Vancouver</option>
+                <option value="Surrey">Surrey</option>
+                <option value="Burnaby">Burnaby</option>
+                <option value="Richmond">Richmond</option>
+                <option value="Coquitlam">Coquitlam</option>
+                <option value="Langley">Langley</option>
+                <option value="Delta">Delta</option>
+                <option value="North Vancouver">North Vancouver</option>
+                <option value="West Vancouver">West Vancouver</option>
+                <option value="New Westminster">New Westminster</option>
+                <option value="Port Coquitlam">Port Coquitlam</option>
+                <option value="Port Moody">Port Moody</option>
+                <option value="Maple Ridge">Maple Ridge</option>
+                <option value="Pitt Meadows">Pitt Meadows</option>
+                <option value="White Rock">White Rock</option>
+            </select>
+
+            <label for="property-size">Size Range:</label>
+            <input id="property-size" name="propertySize" placeholder="Enter size range (e.g., 1200-1500 sqft)" required type="text">
+
+
+            <label for="property-price">Price:</label>
+            <input id="property-price" name="propertyPrice" placeholder="Enter price range (e.g., $200,000)" required type="text">
+
+            <label for="property-year">Year to Build:</label>
+            <input id="property-year" name="propertyYear" placeholder="Enter the year the property was built" required type="number">
+
+            <label for="realtor-contact">Contact Realtor:</label>
+            <input id="realtor-contact" name="realtorContact" placeholder="Enter contact information for the realtor" required type="text">
+
+            <label for="property-status">Status:</label>
+            <select id="property-status" name="propertyStatus" required>
+                <option value="Available">Available</option>
+                <option value="Sold">Sold</option>
+                <option value="Pending">Pending</option>
+            </select>
+
+            <label for="property-images">Property Images:</label>
+            <input id="property-images" name="propertyImages[]" type="file" multiple accept="image/*">
+
+            <button type="submit">Add Property</button>
+        </form>
+
+    </main>
+</div>
+
+<footer>
+    <p>&copy; 2023 Lux House</p>
+</footer>
+
+
+<script>
+</script>
+</body>
+
+</html>

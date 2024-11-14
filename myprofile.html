@@ -1,0 +1,245 @@
+<?php
+$users = json_decode(file_get_contents('realtorprofile.php'), true);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cursive+Font|Fancy+Heading+Font|Fancy+Link+Font&display=swap">
+
+    <title>My Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #eaeaea;
+            color: #333;
+        }
+
+        .header-container {
+            background-color: black;
+            color: #8d6909;
+            font-family: "Baskerville Old Face",sans-serif;
+            text-align: left;
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            max-width: 150px;
+            margin-right: 200PX;
+            padding: 15px;
+        }
+
+        nav {
+            text-align: right;
+            background-color: #0a0a0a;
+            color: #fff;
+            padding: 20px;
+        }
+
+        #updateProfileForm {
+            width: 100%;
+            margin: 20px;
+            text-align: left;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        label {
+            margin-top: 10px;
+            display: block;
+        }
+
+        input {
+            width: 20%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .users h3 {
+            margin-left: 5px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-left: 10px;
+        }
+
+        .users p {
+            margin: 8px 0;
+            border-radius: 5px;
+            color: #555;
+        }
+
+        .users button {
+            background-color: black;
+            color: gold;
+            height: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .users button:hover {
+            background-color: #333;
+        }
+
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-right: 15px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: darkgoldenrod;
+            font-weight: bold;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        footer {
+            background-color: #0a0a0a;
+            color: darkgoldenrod;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+
+        <div class="dashboard">
+        </div>
+        <div>
+            <img class="logo" src="uploads/Logo2.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="customerhomepage.html">Home</a></li>
+                <li><a href="myprofile.html">My Profile</a></li>
+                <li><a href="sendemail.html">Send Email</a></li>
+                <li><a href="Login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<form id="updateProfileForm">
+    <h2>My Profile</h2>
+
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required>
+    <br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" required>
+    <br>
+    <button type="submit">Update Profile</button>
+</form>
+
+<footer>
+    <p>&copy; 2023 Lux House</p>
+</footer>
+
+<script src="jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        fetchAndDisplayUser();
+
+        $('#updateProfileForm').submit(function (event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: 'realtorprofile.php',
+                method: 'POST',
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function (data) {
+                    if (data.success) {
+                        alert('Profile successfully updated: ' + data.message);
+                    } else {
+                        console.error('Error updating user information:', data.error);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Failed to update user information:', error);
+                }
+            });
+        });
+    });
+
+    function fetchAndDisplayUser() {
+        $.ajax({
+            url: 'realtorprofile.php',
+            method: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                if (data !== null && typeof data === 'object' && data.hasOwnProperty('user')) {
+                    const user = data.user;
+
+                    $('#firstName').val(user['firstName']);
+                    $('#lastName').val(user['lastName']);
+                    $('#email').val(user['email']);
+                    $('#phone').val(user['phone']);
+
+                    if (user['profilePicture']) {
+                        const profilePictureUrl = user['profilePicture'];
+                        $('#profilePicture').attr('src', profilePictureUrl);
+                    }
+                } else {
+                    console.error('Invalid data format:', data);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Failed to fetch user:', error);
+            }
+        });
+    }
+
+    fetchAndDisplayUser();
+
+</script>
+
+</body>
+
+</html>

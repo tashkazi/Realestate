@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Manage Properties</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #eaeaea;
+      color: #333;
+    }
+
+    h2 {
+      margin-left: 45px;
+    }
+
+    .header-container {
+      background-color: black;
+      color: #8d6909;
+      font-family: "Baskerville Old Face", sans-serif;
+      text-align: left;
+      width: 100%;
+      padding-left: 15px;
+      padding-right: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      max-width: 150px;
+      padding: 15px;
+    }
+
+    .dashboard {
+      margin-right: auto;
+    }
+
+    nav {
+      text-align: right;
+      background-color: #0a0a0a;
+      color: #fff;
+      padding: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin-right: 15px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    nav li {
+      margin-right: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: darkgoldenrod;
+      font-weight: bold;
+    }
+
+    .container2 {
+      width: 95%;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    form {
+      display: flex;
+      margin-left: 50px;
+      flex-direction: column;
+      max-width: 400px;
+    }
+
+    form label {
+      margin-bottom: 8px;
+    }
+
+    form input,
+    form select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+    }
+
+    form button {
+      background-color: darkgoldenrod;
+      color: #fff;
+      width: 30%;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      margin: 8px 0;
+    }
+
+    form button:hover {
+      background-color: darkgoldenrod;
+    }
+
+    img {
+      width: 30%;
+      padding: 10px;
+      display: block;
+      margin-left: 40px;
+    }
+
+    footer {
+      background-color: #0a0a0a;
+      color: darkgoldenrod;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="header-container">
+  </div>
+  <div>
+    <img class="logo" src="uploads/Logo2.png" alt="Logo">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="adminhomepage.html">Home</a></li>
+      <li><a href="reports.html">Generate Report</a></li>
+      <li><a href="adduser.html">Add User</a></li>
+      <li><a href="manageusers.html">Manage Users</a></li>
+      <li><a href="adminaddproperty.html">Add Property</a></li>
+      <li><a href="Login.html">Logout</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main>
+  <div class="container2">
+    <h2>Manage Property</h2>
+    <div id="propertyDetails">
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2023 Lux House</p>
+</footer>
+
+<script src="jquery-3.7.1.min.js"></script>
+<script src="manageproperties.js"></script>
+
+<script>
+  $(document).ready(function () {
+    fetchAndDisplayPropertyDetails();
+  });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>User Registration</title>
+    <link href="realtor.css" rel="stylesheet">
+</head>
+<body>
+<div class="container1">
+    <form action="register.php" method="post" enctype="multipart/form-data">
+
+        <h2>Registration</h2>
+
+        <label for="firstName">First Name:</label>
+        <input id="firstName" name="firstName" required type="text">
+
+        <label for="lastName">Last Name:</label>
+        <input id="lastName" name="lastName" required type="text">
+
+        <label for="email">Email:</label>
+        <input id="email" name="email" required type="email">
+
+        <label for="phone">Phone:</label>
+        <input id="phone" name="phone" required type="text">
+
+        <label for="userType">User Type:</label>
+        <select id="userType" name="userType" required>
+            <option value="admin">Admin</option>
+            <option value="realtor">Realtor</option>
+            <option value="customer">Customer</option>
+        </select>
+
+        <label for="preferredProperty">Preferred Property:</label>
+        <select data-type="customer" id="preferredProperty" name="preferredProperty"
+                style="display: none;" required>
+            <option value="apartment">Apartment</option>
+            <option value="townhouse">Townhouse</option>
+            <option value="singleFamilyHouse">Single Family House</option>
+            <option value="land">Land</option>
+        </select>
+
+        <label for="password">Password:</label>
+        <input id="password" name="password" required type="password">
+
+        <label for="image">Profile Image:</label>
+        <input id="image" name="image" type="file">
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p>Already have an Account? <a href="Login.html">Login</a></p>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const userTypeSelect = document.getElementById('userType');
+        const preferredPropertySelect = document.getElementById('preferredProperty');
+
+        userTypeSelect.addEventListener('change', function () {
+            const userType = userTypeSelect.value;
+            preferredPropertySelect.style.display = userType === 'customer' ? 'block' : 'none';
+        });
+    });
+</script>
+</body>
+<img src="uploads/logo2.png" alt="Logo">
+<footer>
+    <p>&copy; 2023 Lux House</p>
+</footer>
+</html>

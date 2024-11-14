@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Send Email</title>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 8px;
+            color: #555;
+            text-align: left;
+            width: 95%;
+        }
+
+        input,
+        textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: black;
+            width: 50%;
+            color: darkgoldenrod;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: darkgoldenrod;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 30px;
+            color: #0a0a0a;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-left: 500px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Send Email</h1>
+    <form id="email-form">
+        <label for="recipient-email">Recipient's Email:</label>
+        <input id="recipient-email" placeholder="Enter recipient's email" required type="email">
+        <label for="email-message">Message:</label>
+        <textarea id="email-message" placeholder="Enter your message" required rows="4"></textarea>
+        <button onclick="sendEmail()" type="button">Send Email</button>
+
+
+        <div id="result-message"></div>
+    </form>
+</div>
+
+<img src="uploads/logo2.png" alt="Logo">
+
+<footer>
+    <p>&copy; 2023 Lux House</p>
+</footer>
+<script src="jquery-3.7.1.min.js"></script>
+<script>
+    emailjs = emailjs || {};
+    emailjs.init("wVoZtYNraltKlaCx2");
+
+    function sendEmail() {
+        const recipientEmail = document.getElementById("recipient-email").value;
+        const emailMessage = document.getElementById("email-message").value;
+        const resultMessage = document.getElementById("result-message");
+
+        emailjs.send("service_djy2lmq", "template_1mnlk6r", {
+            to_email: recipientEmail,
+            message: emailMessage
+        })
+            .then((response) => {
+                console.log("Email sent:", response);
+                resultMessage.innerHTML = "Email sent successfully!";
+            })
+            .catch((error) => {
+                console.error("Error sending email:", error);
+                resultMessage.innerHTML = "Error sending email. Please try again.";
+            });
+    }
+</script>
+</body>
+</html>

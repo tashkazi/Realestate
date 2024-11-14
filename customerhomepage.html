@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Customer Homepage</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+
+        .container2 {
+            width: 95%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        #searchForm{
+            margin-left: 20px;
+        }
+
+        #searchForm button {
+            background-color: darkgoldenrod;
+            color: #fff;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-left: 15px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        #searchForm button:hover {
+            background-color: #ffd700;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #eaeaea;
+            color: #333;
+        }
+
+        .header-container {
+            background-color: black;
+            color: #8d6909;
+            font-family: "Baskerville Old Face",sans-serif;
+            text-align: left;
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        .logo {
+            max-width: 200px;
+            margin-right: 350px;
+            padding: 15px;
+        }
+
+        footer {
+            background-color: black;
+            color: darkgoldenrod;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+
+        nav {
+            text-align: right;
+            margin-right: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav li {
+            margin-right: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: darkgoldenrod;
+            font-weight: bold;
+        }
+
+        select {text-align: left;
+            height: 30px;
+                  width: 100px;
+        }
+
+        .container2 .property-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .property-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .property {
+            width: calc(45% - 20px);
+            margin: 10px;
+            height: 20%;
+            padding: 25px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .property img {
+            width: 95%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .property h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .property p {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .property button {
+            background-color: darkgoldenrod;
+            color: #fff;
+            padding: 10px 14px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            display: inline-block;
+            margin-left: 5px ;
+        }
+
+        .property button:hover {
+            background-color: darkgoldenrod;
+        }
+
+        .dashboard {
+            margin-right: auto;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+
+        <div class="dashboard">
+            <h1>Customer Dashboard</h1>
+        </div>
+        <div>
+            <img class="logo" src="uploads/Logo2.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="customerhomepage.html">Home</a></li>
+                <li><a href="myprofile.html">My Profile</a></li>
+                <li><a href="sendemail.html">Send Email</a></li>
+                <li><a href="Login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <form id="searchForm">
+        <label for="propertyType">Property Type:</label>
+        <select id="propertyType" name="propertyType">
+            <option value="allproperties">All Properties</option>
+            <option value="apartment">Apartment</option>
+            <option value="townhouse">Townhouse</option>
+            <option value="singleFamilyHouse">Single Family House</option>
+            <option value="land">Land</option>
+        </select>
+
+        <label for="priceRange">Price Range:</label>
+        <select id="priceRange" name="priceRange">
+            <option value="0-500000">Below $500,000</option>
+            <option value="500000-1000000">$500,000 - $1,000,000</option>
+            <option value="1000000-2000000">$1,000,000 - $2,000,000</option>
+            <option value="2000000-5000000">$2,000,000 - $5,000,000</option>
+            <option value="5000000+">Above $5,000,000</option>
+        </select>
+
+        <label for="location">Location:</label>
+        <select id="location" name="location">
+            <option value="allCities">All Cities</option>
+            <option value="Vancouver">Vancouver</option>
+            <option value="Burnaby">Burnaby</option>
+            <option value="Surrey">Surrey</option>
+            <option value="Richmond">Richmond</option>
+            <option value="Coquitlam">Coquitlam</option>
+            <option value="Langley">Langley</option>
+            <option value="NorthVancouver">North Vancouver</option>
+            <option value="NewWestminster">New Westminster</option>
+            <option value="PortMoody">Port Moody</option>
+            <option value="MapleRidge">Maple Ridge</option>
+            <option value="Delta">Delta</option>
+            <option value="WhiteRock">White Rock</option>
+            <option value="PittMeadows">Pitt Meadows</option>
+            <option value="PortCoquitlam">Port Coquitlam</option>
+        </select>
+
+        <label for="yearToBuild">Year To Build:</label>
+        <select id="yearToBuild" name="yearToBuild">
+            <option value="1950-1955">1950 - 1955</option>
+            <option value="1955-1960">1955 - 1960</option>
+            <option value="1960-1965">1960 - 1965</option>
+            <option value="1965-1970">1965 - 1970</option>
+            <option value="1970-1975">1970 - 1975</option>
+            <option value="1975-1980">1975 - 19850</option>
+            <option value="1980-1985">1980 - 1985</option>
+            <option value="1985-1990">1985 - 1990</option>
+            <option value="1990-1995">1990 - 1995</option>
+            <option value="1995-2000">1995 - 2000</option>
+            <option value="2000-2005">2000 - 2005</option>
+            <option value="2005-2010">2005 - 2010</option>
+            <option value="2010-2015">2010 - 2015</option>
+            <option value="2015-2020">2015 - 2020</option>
+            <option value="2020-2023">2020 - 2023</option>
+        </select>
+
+        <button type="button" onclick="searchProperties()">Search</button>
+
+    </form>
+
+    <div class="container2">
+        <div class="property-list" id="propertyList">
+
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2023 Lux House</p>
+</footer>
+<script src="jquery-3.7.1.min.js"></script>
+<script src="customerhomepage.js"></script>
+
+</body>
+</html>

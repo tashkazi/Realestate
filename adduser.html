@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Add User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .header-container {
+            background-color: black;
+            color: #8d6909;
+            font-family: "Baskerville Old Face",sans-serif;
+            text-align: left;
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        .logo {
+            max-width: 200px;
+            margin-left: 600px
+        }
+
+        .container {
+            width: 95%;
+            border-radius: 6px;
+            background-color: #ffffff;
+            margin-left: 25px;
+            align-content: center;
+
+        }
+
+        nav {
+            width: 95%;
+            text-align: center;
+            background-color: #0a0a0a;
+            align-content: center;
+            color: #fff;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color:  darkgoldenrod;
+            font-weight: bold;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 8px;
+            color: #555;
+            text-align: left;
+            width: 100%;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: darkgoldenrod;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: darkgoldenrod;
+        }
+
+
+        footer {
+            background-color: #0a0a0a;
+            color: darkgoldenrod;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+
+        <div>
+            <img class="logo" src="uploads/Logo2.png" alt="Logo">
+        </div>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="adminhomepage.html">Home</a></li>
+                    <li><a href="reports.html">Generate Report</a></li>
+                    <li><a href="adduser.html">Add User</a></li>
+                    <li><a href="manageusers.html">Manage Users</a></li>
+                    <li><a href="adminaddproperty.html">Add Property</a></li>
+                    <li><a href="Login.html">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+</header>
+
+
+<main>
+    <div class="container">
+        <h2>Add User</h2>
+        <form method="POST" action="adduser.php" enctype="multipart/form-data">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone">
+
+            <label for="userType">User Type:</label>
+            <select id="userType" name="userType" required>
+                <option value="Realtor">Realtor</option>
+                <option value="Admin">Admin</option>
+            </select>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="imagePath">Image Path:</label>
+            <input type="file" id="imagePath" name="imagePath">
+
+            <button type="submit">Add User</button>
+        </form>
+
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2023 Lux House</p>
+</footer>
+
+
+<script>
+</script>
+</body>
+
+</html>
